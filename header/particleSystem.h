@@ -48,23 +48,34 @@ public:
     void Update(float dt);
     void Draw(SpriteBatcher* spriteBatcher);
 
+    // Particles move relative to the system or relative to the world.
     bool m_useLocalCoordinates = true;
+    // Position of the system.
     glm::vec2 m_position;
 
+    // Lower number means higher spawn rate
     float m_spawnFrequency = .05f;
+    // Time in seconds until particles are recycled.
     float m_lifeTime = 1.f;
 
+    // lowest possible starting particle speed
     float m_startVelocityMin = 0;
+    // highest speed relative to lowest
     float m_startVelocityRange = 100;
 
+    // possible starting rotations for particles. x is lowest. y is range.
     glm::vec2 m_rotationRange = glm::vec2(0, 0);
+    // possible angular velocity same system as rotation range
     glm::vec2 m_angularVelocityRange = glm::vec2(0, 0);
 
+    // global acceleration applied to all particles, defaults to 0
     glm::vec2 m_acceleration = glm::vec2(0, 0);
 
 private:
+    // The particle system will work with a predefined pool of 512 particles, this makes things way faster than having a dynamic list.
     static const int MAX_PARTICLES = 512;
     Particle m_particles[MAX_PARTICLES];
+
     Texture* m_texture;
     float m_internalTimer = 0;
 

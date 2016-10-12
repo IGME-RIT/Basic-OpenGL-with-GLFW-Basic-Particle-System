@@ -1,8 +1,9 @@
-# Basic OpenGL with GLFW: Sprite Batching
+# Basic OpenGL with GLFW: Basic Particle System
 
-Sending information to the gpu is one of the most common bottlenecks when it comes to graphics programming.
-This can make drawing thousands of sprites at once incredibly slow.
-Instead of drawing individual objects one at a time, we can batch them all into one draw call to speed things up significantly.
+This demo uses a modified spritebatcher from the previous example, adding the ability to rotate sprites.
+Cpu based particle systems are relatively easy to create.
+In this example, a class manages an array of particle structs, looping over and updating them.
+Particles keep track of their age, and when they reach the maximum age, they are ignored, and later recycled.
 
 # Setup
 

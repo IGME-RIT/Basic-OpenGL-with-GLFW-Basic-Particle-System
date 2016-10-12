@@ -110,6 +110,7 @@ int main(int argc, char **argv)
     // Create a spriteBatcher (This one will need the size of the screen)
     spriteBatcher = new SpriteBatcher(glm::vec2(800, 600));
     
+    // Initialize the particle system class with a bunch of parameters:
     particleSystem = new ParticleSystem(texture);
     particleSystem->m_position = glm::vec2(100, 0);
     particleSystem->m_useLocalCoordinates = false;
